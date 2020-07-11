@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.condition.OS;
@@ -38,6 +39,8 @@ class MathUtilsTest {
 	
 	@AfterEach
 	void afterEachMethod() {
+		//This method will be triggered after each @Test annotated method
+		//except those which are disabled 
 		System.out.println("@AfterEach hook triggered");
 	}
 	
@@ -47,12 +50,28 @@ class MathUtilsTest {
 		System.out.println("@AfterAll hook triggered");
 	}
 	
-	@Test
-	@DisplayName("Testing add() method")
-	void testAdd() {
-		int expected = 2;
-		int actual = mu.add(1,1);
-		assertEquals(expected, actual, "Add 2 numbers");
+	@Nested
+	class AddTest {
+		@Test
+		@DisplayName("Addition of 2 positive numbers")
+		void testAddingTwoPositives() {
+			assertEquals(2, mu.add(1, 1), 
+					"Add method should return the sum of two numbers");
+		}
+		
+		@Test
+		@DisplayName("Addition of 2 negative numbers")
+		void testAddingTwoNegatives() {
+			assertEquals(-2, mu.add(-1, -1), 
+					"Add method should return the sum of two numbers");
+		}
+		
+		@Test
+		@DisplayName("Addition of a positive and a negative number")
+		void testAddingAPositiveAndANegative() {
+			assertEquals(0, mu.add(-1, 1), 
+					"Add method should return the sum of two numbers");
+		}
 	}
 	
 	@Test
