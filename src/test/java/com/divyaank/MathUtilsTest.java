@@ -2,6 +2,9 @@ package com.divyaank;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,9 +12,26 @@ class MathUtilsTest {
 
 	private MathUtils mu;
 	
+	@BeforeAll
+	static void runBeforeAll() {
+		//This method is static as @BeforeAll is triggered even before class is initialized
+		System.out.println("@BeforeAll hook triggered");
+	}
+	
 	@BeforeEach
 	void initObj() {
 		mu = new MathUtils();
+	}
+	
+	@AfterEach
+	void afterEachMethod() {
+		System.out.println("@AfterEach hook triggered");
+	}
+	
+	@AfterAll
+	static void runAfterAll() {
+		//This method is static as @AfterAll is triggered after class instance is destroyed
+		System.out.println("@AfterAll hook triggered");
 	}
 	
 	@Test
