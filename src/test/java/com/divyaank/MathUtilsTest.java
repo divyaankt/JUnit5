@@ -74,6 +74,18 @@ class MathUtilsTest {
 		}
 	}
 	
+	@Test 
+	@DisplayName("Testing multiply() method")
+	void testMultiply() {
+		assertAll(
+				() -> assertEquals(0, mu.multiply(1, 0)),
+				() -> assertEquals(1, mu.multiply(1, 1)),
+				() -> assertEquals(6, mu.multiply(2, 3)),
+				() -> assertEquals(180, mu.multiply(36, 5)),
+				() -> assertEquals(-24, mu.multiply(-12, 2))
+				);
+	}
+	
 	@Test
 	@DisplayName("Testing divide() method")
 	void testDivide() {
