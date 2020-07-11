@@ -13,7 +13,14 @@ class MathUtilsTest {
 		int actual = mu.add(1,1);
 		assertEquals(expected, actual, "Add 2 numbers");
 	}
-
+	
+	@Test
+	void testDivide() {
+		MathUtils mu = new MathUtils();
+		assertThrows(ArithmeticException.class, () -> mu.divide(1, 0), 
+				"Divide should throw ArithmeticException when denominator is zero");
+	}
+	
 	@Test 
 	void computeCircleArea() {
 		MathUtils mu = new MathUtils();
