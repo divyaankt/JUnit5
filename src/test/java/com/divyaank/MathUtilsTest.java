@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -60,5 +61,12 @@ class MathUtilsTest {
 	void testComputeCircleArea() {
 		assertEquals(314.1592653589793, mu.computeCircleArea(10), 
 				"Should return right circle area");
+	}
+	
+	@Test
+	@Disabled
+	@DisplayName("testDisabled() should not run")
+	void testDisabled() {
+		fail("Method should not run, implementation incomplete:(");
 	}
 }
