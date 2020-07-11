@@ -10,11 +10,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.condition.OS;
+import org.junit.jupiter.api.condition.JRE;
+import org.junit.jupiter.api.condition.EnabledOnJre;
+import org.junit.jupiter.api.condition.EnabledOnOs;
 
 
 //Create one instance for each class, not each method(default behaviour)
 //Using this @BeforeAll and @AfterAll hooks can have non-static methods
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) 
+@EnabledOnJre(JRE.JAVA_8)
+@EnabledOnOs(OS.WINDOWS)
 class MathUtilsTest {
 
 	private MathUtils mu;
