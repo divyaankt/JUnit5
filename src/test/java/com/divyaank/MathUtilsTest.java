@@ -22,6 +22,7 @@ import org.junit.jupiter.api.condition.EnabledOnOs;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) 
 @EnabledOnJre(JRE.JAVA_8)
 @EnabledOnOs(OS.WINDOWS)
+@DisplayName("Testing MathUtils.java")
 class MathUtilsTest {
 
 	private MathUtils mu;
@@ -51,6 +52,7 @@ class MathUtilsTest {
 	}
 	
 	@Nested
+	@DisplayName("Testing add() method")
 	class AddTest {
 		@Test
 		@DisplayName("Addition of 2 positive numbers")
