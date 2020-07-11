@@ -7,7 +7,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
+
+//Create one instance for each class, not each method(default behaviour)
+//Using this @BeforeAll and @AfterAll hooks can have non-static methods
+@TestInstance(TestInstance.Lifecycle.PER_CLASS) 
 class MathUtilsTest {
 
 	private MathUtils mu;
