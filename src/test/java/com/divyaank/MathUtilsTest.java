@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
@@ -40,6 +41,7 @@ class MathUtilsTest {
 	}
 	
 	@Test
+	@DisplayName("Testing add() method")
 	void testAdd() {
 		int expected = 2;
 		int actual = mu.add(1,1);
@@ -47,13 +49,15 @@ class MathUtilsTest {
 	}
 	
 	@Test
+	@DisplayName("Testing divide() method")
 	void testDivide() {
 		assertThrows(ArithmeticException.class, () -> mu.divide(1, 0), 
 				"Divide should throw ArithmeticException when denominator is zero");
 	}
 	
-	@Test 
-	void computeCircleArea() {
+	@Test
+	@DisplayName("Testing computeCircleArea() method")
+	void testComputeCircleArea() {
 		assertEquals(314.1592653589793, mu.computeCircleArea(10), 
 				"Should return right circle area");
 	}
